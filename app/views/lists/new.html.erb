@@ -1,0 +1,9 @@
+<div class="list-banner">
+  <h1>Create your list</h1>
+</div>
+
+
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name, placeholder: 'Add a list name' %>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
