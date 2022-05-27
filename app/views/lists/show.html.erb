@@ -1,12 +1,22 @@
 <h1><%= @list.name  %></h1>
 <br>
 
-<%= @list.bookmarks.each do |bookmark| %>
-<li>
-<%= bookmark.movie.title %></p>
-</li>
+<% @list.bookmarks.each do |bookmark| %>
+
+  <img src="<%= bookmark.movie.poster_url %>" class="img-fluid" alt="Responsive image">
+  <p><%= bookmark.movie.title %></p>
+  <p><%= bookmark.movie.overview %></p>
+  <p><%= bookmark.movie.rating %></p>
+  <p><%= bookmark.comment %></p>
+
+  <%= link_to "🗑",
+    bookmark_path(bookmark),
+    data: {turbo_method: :delete,turbo_confirm: "Are you sure?"}
+  %>
 
 <% end %>
+
 <br>
 
 <%= link_to "Add Movie", new_list_bookmark_path(@list) %>
+<%= link_to "Back to Home Page", lists_path %>

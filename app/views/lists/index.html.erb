@@ -1,18 +1,23 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.redd.it/4fxxbm4opjd31.jpg);">
   <div class="container">
-    <h1>Boss Man Movie Lists</h1>
+    <h1>Little Screen Movie Lists</h1>
     <br>
-    <p>Make lists of movies and keep track of what you've watched!</p>
-    <a class="btn btn-primary" href="#">Add New List</a>
+    <p>Make lists of movies you love and keep track of what you've watched!</p>
+    <%= link_to "Add New List", new_list_path, class: "btn btn-primary" %>
   </div>
 </div>
 
+<div class="id">
 
-<div class="class">
-  <% @lists.each do |list| %>
-  <%= link_to list.name, list_path(list) %>
-
-<% end %>
+<div class="container">
+  <div class="row my-3">
+    <div class="col-8">
+      <div class="cards">
+        <% @lists.each do |list| %>
+          <%= link_to list.name, list_path(list) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "Add New List", new_list_path %>
+<%# <%= link_to "Add New List", new_list_path, class: "btn btn-primary" %>
