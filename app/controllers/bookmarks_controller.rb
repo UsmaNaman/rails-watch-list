@@ -1,10 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :find_list, only: %i[new create]
 
-  # def index
-  #   @bookmarks = Bookmark.where(list_id: @list)
-  # end
-
   def new
     @bookmark = Bookmark.new
     # @list = List.find(params[:list_id])
