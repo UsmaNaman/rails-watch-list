@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.redd.it/4fxxbm4opjd31.jpg);">
   <div class="container">
-    <h1>Little Screen Movie Lists</h1>
+    <h1>Flicks Lists</h1>
     <br>
     <p>Make lists of movies you love and keep track of what you've watched!</p>
     <%= link_to "Add New List", new_list_path, class: "btn btn-primary" %>
@@ -9,9 +9,9 @@
 
 <div class="id">
 
-<div class="container">
-  <div class="row my-3">
-    <div class="col-8">
+<div class="card-category">
+  <div class="row my-4">
+    <div class="col-16">
       <div class="cards">
         <% @lists.each do |list| %>
           <%= link_to list.name, list_path(list) %>
@@ -20,4 +20,10 @@
     </div>
   </div>
 </div>
-<%# <%= link_to "Add New List", new_list_path, class: "btn btn-primary" %>
+
+
+<!-- app/views/articles/index.html.erb -->
+<%= cl_image_tag("iqlmadux2pq8wgvf9xz0", width: 400, height: 300, crop: :fill) %>
+
+<!-- for face detection -->
+<%= cl_image_tag("cqct7obf21j4hiuumt5a", width: 150, height: 150, crop: :thumb, gravity: :face) %>
