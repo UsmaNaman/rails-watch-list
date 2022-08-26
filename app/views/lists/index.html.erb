@@ -1,8 +1,9 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.redd.it/4fxxbm4opjd31.jpg);">
-  <div class="container">
-    <h1>Flicks Lists</h1>
+  <div class="container text-center">
+    <h1>Flick List</h1>
     <br>
-    <p>Make lists of movies you love and keep track of what you've watched!</p>
+    <%# <p>Make lists of movies you love and keep track of what you've watched!</p> %>
+    <p><span data-controller="typed-js"></span></p>
     <%= link_to "Add New List", new_list_path, class: "btn btn-primary" %>
   </div>
 </div>
@@ -19,10 +20,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  Breakfast
 </div>
 
 
