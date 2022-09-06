@@ -7,7 +7,7 @@ export default class extends Controller {
     console.log("connected")
     new Typed(this.element, {
       strings: ["Create lists", "Watch movies"],
-      typeSpeed: 25,
+      typeSpeed: 50,
       loop: true
     })
   }

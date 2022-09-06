@@ -12,3 +12,6 @@ application.register("navbar", NavbarController)
 
 import TypedJsController from "./typed_js_controller.js"
 application.register("typed-js", TypedJsController)
+
+import TomSelectController from "./tom_select_controller.js"
+application.register("tom-select", TomSelectController)
