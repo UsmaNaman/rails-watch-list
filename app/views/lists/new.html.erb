@@ -1,8 +1,14 @@
-<div class="list-banner">
-  <h1>Create your list</h1>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h1>Create your new list</h1>
+        <%= simple_form_for(@list) do |f| %>
+          <%= f.input :name, placeholder: 'Give your list name' %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit "Create", class: "btn btn-flat" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<%= simple_form_for(@list) do |f| %>
-  <%= f.input :name, placeholder: 'Add a list name' %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Create", class: "btn btn-primary" %>
-<% end %>
