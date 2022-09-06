@@ -4,10 +4,9 @@ import Typed from "typed.js"
 // Connects to data-controller="typed-js"
 export default class extends Controller {
   connect() {
-    console.log("connected")
     new Typed(this.element, {
       strings: ["Create lists", "Watch movies"],
-      typeSpeed: 50,
+      typeSpeed: 25,
       loop: true
     })
   }
