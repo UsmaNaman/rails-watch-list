@@ -6,7 +6,8 @@ export default class extends Controller {
   connect() {
     new Typed(this.element, {
       strings: ["Create lists", "Watch movies"],
-      typeSpeed: 25,
+      showCursor: false,
+      typeSpeed: 10,
       loop: true
     })
   }
