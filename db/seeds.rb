@@ -25,7 +25,7 @@ Movie.destroy_all
 puts "Database cleaned"
 
 url = "http://tmdb.lewagon.com/movie/top_rated"
-# url = 'https://www.omdbapi.com/?i=tt3896198&apikey=c01edb0a'
+
 20.times do |i|
   puts "Importing movies from page #{i + 1}"
   movies = JSON.parse(URI.open("#{url}?page=#{i + 1}").read)['results']
