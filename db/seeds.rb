@@ -16,41 +16,34 @@
 
 # puts "Movies compiled"
 
-# require 'open-uri'
+require 'open-uri'
 require 'json'
-require "rest-client"
-
+# require "rest-client"
+# require 'pp'
 
 
 puts "Cleaning up database..."
-# Movie.destroy_all
+Review.destroy_all
+Bookmark.destroy_all
+Movie.destroy_all
 puts "Database cleaned"
 
-response = RestClient.get "https://www.omdbapi.com/?s=Batman&apikey=#{ENV["OMDB_API"]}"
-repos = JSON.parse(response)
+# response = RestClient.get "https://www.omdbapi.com/?s=Batman&apikey=#{ENV["OMDB_API"]}"
+# repos = JSON.parse(response)
 
+# omdbapi_service = OmdbapiService.new
+# repos = omdbapi_service.call('superman')
 # => repos is an `Array` of `Hashes`.
 
-p repos
+# pp repos
 
-# Movie.create(
-#       title: movie['title'],
-#       overview: movie['overview'],
-#       poster_url: "#{base_poster_url}#{movie['backdrop_path']}",
-#       rating: movie['vote_average']
-#     )
+
+# title = hash["Search"][0]["Title"]
 
 # url = "http://tmdb.lewagon.com/movie/top_rated"
-
-
-# omdbapi = `https://www.omdbapi.com/?s=batman&apikey=#{OMDBAPI}`
-# movies = JSON.parse(URI.open(omdbapi).read)
-
-# p movies
-
-# 20.times do |i|
+# 10.times do |i|
 #   puts "Importing movies from page #{i + 1}"
-#   movies = JSON.parse(URI.open("#{omdbapi}?page=#{i + 1}").read)['results']
+#   movies = JSON.parse(URI.open("#{url}?page=#{i + 1}").read)['results']
 #   movies.each do |movie|
 #     puts "Creating #{movie['title']}"
 #     base_poster_url = "https://image.tmdb.org/t/p/original"
@@ -62,25 +55,23 @@ p repos
 #     )
 #   end
 # end
-puts "Movies created"
+# puts "Movies created"
 
 # puts 'Cleaning up database...'
 # Movie.destroy_all
 # puts 'Database cleaned'
 
-# url = 'http://tmdb.lewagon.com/movie/top_rated'
+url = 'http://tmdb.lewagon.com/movie/top_rated'
 
-
-
-# puts 'Importing movies'
-# movies = JSON.parse(URI.open("#{url}?page=1").read)['results']
-# movies.each do |movie|
-#   base_poster_url = 'https://image.tmdb.org/t/p/original'
-#   Movie.create(
-#     title: movie['title'],
-#     overview: movie['overview'],
-#     poster_url: "#{base_poster_url}#{movie['backdrop_path']}",
-#     rating: movie['vote_average']
-#   )
-#   puts 'Movies created'
-# end
+puts 'Importing movies'
+movies = JSON.parse(URI.open("#{url}?page=1").read)['results']
+movies.each do |movie|
+  base_poster_url = 'https://image.tmdb.org/t/p/original'
+  Movie.create(
+    title: movie['title'],
+    overview: movie['overview'],
+    poster_url: "#{base_poster_url}#{movie['backdrop_path']}",
+    rating: movie['vote_average']
+  )
+end
+  puts 'Movies created'

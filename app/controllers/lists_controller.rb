@@ -9,6 +9,7 @@ class ListsController < ApplicationController
     # @list = List.find(params[:id])
     @bookmark = Bookmark.new
     @review = Review.new(list: @list)
+    # @omdbapi_service = OmdbapiService.new
   end
 
   def new
