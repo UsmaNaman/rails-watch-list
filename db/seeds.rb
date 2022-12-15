@@ -66,6 +66,7 @@ url = 'http://tmdb.lewagon.com/movie/top_rated'
 puts 'Importing movies'
 movies = JSON.parse(URI.open("#{url}?page=1").read)['results']
 movies.each do |movie|
+  puts "Creating #{movie['title']}"
   base_poster_url = 'https://image.tmdb.org/t/p/original'
   Movie.create(
     title: movie['title'],
