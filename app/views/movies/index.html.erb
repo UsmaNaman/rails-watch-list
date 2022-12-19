@@ -1,0 +1,28 @@
+<%= form_tag movies_search_path, method: :get do %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<ul id="movie-list">
+  <!-- Movie list items will be added here -->
+</ul>
+
+<script>
+  // Listen for the search form's submission
+  $('form').on('submit', function(e) {
+    e.preventDefault();
+
+    // Get the search query from the form
+    var query = $(this).find('[name="query"]').val();
+
+    // Make an AJAX request to the search action
+    $.get('/movies/search?query=' + query, function(movies) {
+      // Add each movie to the movie list
+      movies.forEach(function(movie) {
+        $('#movie-list').append(
+          '<li>' + movie.title + ' (' + movie.year + ')' + '</li>'
+        );
+      });
+    });
+  });
+</script>

@@ -4,7 +4,8 @@
       <div class="bg-white rounded p-3 shadow">
         <h1>Add a Movie to <%= @list.name %></h1>
         <%= simple_form_for [@list, @bookmark] do |f| %>
-          <% f.association :movie, prompt: "Select a movie", input_html: {data: {controller: "tom-select"}} %>
+          <%#= f.association :movie, prompt: "Select a movie", input_html: {data: {controller: "tom-select"}} %>
+          <%= f.association :movie, input_html: { class: 'select2' } %>
           <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
           <%= f.submit "Add", class: "btn btn-flat" %>
         <% end %>

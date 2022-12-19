@@ -9,10 +9,10 @@ class OmdbapiService
   end
 
   def call(title)
-    response = RestClient.get("https://www.omdbapi.com/?s=#{title}&apikey=#{@api_key}").to_s
+    response = RestClient.get "https://www.omdbapi.com/?s=#{title}&apikey=#{@api_key}"
     repos = JSON.parse(response)
     repos["Search"].each do |movie|
-      Movie.create!(title:  movie["Title"], poster_url: movie["Poster"])
+      Movie.create!(title:  movie["title"], poster_url: movie["poster"])
     end
   end
 end

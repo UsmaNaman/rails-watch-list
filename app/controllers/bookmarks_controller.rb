@@ -7,9 +7,9 @@ class BookmarksController < ApplicationController
     # @list = List.find(params[:list_id])
   end
 
-  def show
-    @omdbapi_service = OmdbapiService.new
-  end
+  # def show
+  #   @omdbapi_service = OmdbapiService.new
+  # end
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
