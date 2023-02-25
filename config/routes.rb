@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'lists#index'
 
-  get 'movies/search', to: 'movies#search'
+  # get 'movies/search', to: 'movies#search'
 
   resources :lists, except: %i[edit update] do
     resources :bookmarks, only: %i[new create]
