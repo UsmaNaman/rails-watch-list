@@ -9,7 +9,7 @@
 
       <%= simple_form_for [list, bookmark] do |f| %>
         <div class="modal-body">
-          <%= f.association :movie, collection: Movie.all.order('title'), prompt: "Select a movie", input_html: { data: { controller: "tom-select" } } %>
+          <%= f.association :movie, collection: OmdbapiService.new.call('title'), prompt: "Select a movie", input_html: { data: { controller: "tom-select" } } %>
           <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
         </div>
         <div class="modal-footer">

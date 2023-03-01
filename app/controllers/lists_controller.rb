@@ -25,6 +25,11 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list.destroy
+    redirect_to root_path, notice: "List was successfully destroyed."
+  end
+
   private
 
   def list_params
